@@ -20,7 +20,6 @@
     <main>
         <% users.forEach(function(user) { %>
         <%= user.name %>
-        <% if (user.cohort) { %><%= user.cohort %><% } %>
         <ul>
             <% user.gifts.forEach(function(gift) { %>
             <li><%= gift.text %></li>

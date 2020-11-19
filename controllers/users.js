@@ -1,9 +1,11 @@
 const User = require('../models/user');
+const Store = require('../models/store');
 
 module.exports = {
   index,
   addGift,
-  delGift
+  delGift, 
+  show
 };
 
 function index(req, res) {
@@ -16,11 +18,20 @@ function index(req, res) {
 }
 
 function addGift(req, res) {
-  req.user.facts.push(req.body);
+    console.log(req.body);
+  req.user.gifts.push(req.body);
   req.user.save(function(err) {
     res.redirect('/users');
   });
 }
+
+function show(req, res) {
+    User.findById(req.params.id, function(err, users) {
+      Store.find({user: users._id}, function(err, users) {
+      res.render('users/show', { users, stores });
+    });
+    });
+  }
 
 function delGift(req, res) {
 

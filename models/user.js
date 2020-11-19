@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 
 const giftSchema = new mongoose.Schema({
-  text: String
+  gift: {
+    text: String
+},
+location: {
+    type: String,
+    ref: 'Store'
 }, {
   timestamps: true
 });
