@@ -7,6 +7,7 @@ const giftSchema = new mongoose.Schema({
 location: {
     type: String,
     ref: 'Store'
+}
 }, {
   timestamps: true
 });
