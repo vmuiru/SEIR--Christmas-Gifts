@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <header>
+        <h1><a href="/users">Back to users</a></h1>
+
+    </header>
+    <main>
+        <th>User: </th>
+        <td><%= users.name %></td>
+        <th>Avatar: </th>
+        <td><%= users.avatar %></td>
+        <% users.gifts.forEach(function(gift) { %>
+            <th>Gifts: </th>
+            <td><%= gift.gift %></td>
+            <th>Store Details</th>
+            <% stores.forEach(function(s) {%>
+            <% if(gift.userId === s._id) { %>
+                    <th>Store Location:</th>
+                        <td><%= s.location %></td>
+                        <th>Price:</th>
+                        <td><%= s.price %></td>
+            <% }  %>
+            <% }) %>
+        <a href="/users/<%= gift._id %>/stores/new">Add Store</a>
+        <% }) %>
+        </table>
+    </main>
+    <footer>
+
+    </footer>
+
+
 </body>
+
 </html>

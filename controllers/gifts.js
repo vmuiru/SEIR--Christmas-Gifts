@@ -1,13 +1,13 @@
-const Gift = require('../models/gift')
+//const Gift = require('../models/gift')
 const User = require('../models/user');
 
 function newGift(req, res) {
-    Gift.find({}, function(err, gifts) {
-        res.render('gifts/new', {
+    const userId = req.params.id
+        res.render('users/new', {
             title: 'Add Gift',
-            gifts
-        })
-    })
+            userId
+           // gifts
+        });
 }
 
 function create(req, res){

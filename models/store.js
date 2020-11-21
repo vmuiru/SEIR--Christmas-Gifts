@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const storeSchema = new Schema({
     name: {
-        type: String,   
+        type: String,  
+        enum: ['Nordstrom', 'Macys', 'Apple', 'Amazon', 'Target', 'Walmart'],
+        storeId: String 
     },
     location: {
         type: String,
@@ -13,7 +15,6 @@ const storeSchema = new Schema({
         type: Number,
         min: 0
     }, 
-    user: [{type:Schema.Types.ObjectId,ref:'user'}]
 
     }, {timestamps: true});
 

@@ -6,6 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+    <header></header>
+    <main>
+        <!-- Place Add gift UI Here -->
+        <div class="card-action">
+            <form action="/users/<%= userId %>/gifts" method="POST">
+                <input type="text" name="gift">
+                <button type="submit">Add gift</button>
+            </form>
+        </div>
+    </main>
+    <footer></footer>
     
 </body>
 </html>

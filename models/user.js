@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const giftSchema = new mongoose.Schema({
   gift: {
-    text: String
-},
-location: {
     type: String,
-    ref: 'Store'
-}
+},
+// storeId: [{
+//     type: Schema.Types.ObjectId,
+//     ref: 'Store'
+// }]
 }, {
   timestamps: true
 });

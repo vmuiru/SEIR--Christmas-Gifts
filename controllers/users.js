@@ -5,7 +5,8 @@ module.exports = {
   index,
   addGift,
   delGift, 
-  show
+  show,
+  new: newGift
 };
 
 function index(req, res) {
@@ -17,8 +18,11 @@ function index(req, res) {
   });
 }
 
+function newGift(req, res) {
+  res.render('users/new');
+}
+
 function addGift(req, res) {
-    console.log(req.body);
   req.user.gifts.push(req.body);
   req.user.save(function(err) {
     res.redirect('/users');
@@ -27,11 +31,12 @@ function addGift(req, res) {
 
 function show(req, res) {
     User.findById(req.params.id, function(err, users) {
-      Store.find({user: users._id}, function(err, users) {
+      console.log(users)
+      Store.find({}, function(err, stores) {
       res.render('users/show', { users, stores });
     });
-    });
-  }
+  });
+}
 
 function delGift(req, res) {
 

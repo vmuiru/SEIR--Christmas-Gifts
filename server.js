@@ -13,6 +13,8 @@ require('./config/passport');
 
 const indexRoutes = require('./routes/index');
 const usersRoutes = require('./routes/users');
+const giftsRoutes = require('./routes/gifts');
+const storesRoutes = require('./routes/stores');
 
 app.set('view engine', 'ejs');
 
@@ -33,6 +35,8 @@ app.use(passport.session());
 
 app.use('/', indexRoutes);
 app.use('/', usersRoutes);
+app.use('/', giftsRoutes);
+app.use('/', storesRoutes);
 
 app.listen(port, () => {
   console.log(`Express is listening on port:${port}`);
