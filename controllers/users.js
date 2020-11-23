@@ -31,7 +31,7 @@ function addGift(req, res) {
 
 function show(req, res) {
     User.findById(req.params.id, function(err, users) {
-      console.log(users)
+      console.log(users);
       Store.find({}, function(err, stores) {
       res.render('users/show', { users, stores });
     });

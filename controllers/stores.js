@@ -6,13 +6,12 @@ function newStore(req, res) {
 }
 
 function create(req, res){
-    console.log(req.user);
-    Store.create(req.body, function(err, store){
+    Store.create(req.body, function(err, store) {
+        console.log(err, store)  
         const gift = req.user.gifts.id(req.params.id)
-        gift.storeId = store._id
+        gift.storeIds.push(store._id)
         req.user.save(function(err) {
             res.redirect(`/users/${req.user._id}`)
-
         })
     });
 }

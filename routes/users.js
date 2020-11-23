@@ -3,6 +3,7 @@ const usersCtrl = require('../controllers/users');
 
 router.get('/users', usersCtrl.index);
 router.get('/users/:id', usersCtrl.show);
+router.post('/users/:id/gifts', isLoggedIn, usersCtrl.addGift);
 //router.post('/gifts',isLoggedIn, usersCtrl.addGift);
 //router.get('/:id/gifts',isLoggedIn, usersCtrl.new);
 router.delete('/gifts/:id', isLoggedIn, usersCtrl.delGift);

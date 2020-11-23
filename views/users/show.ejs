@@ -13,24 +13,32 @@
 
     </header>
     <main>
+        <table id="list">
+            <thead>
         <th>User: </th>
-        <td><%= users.name %></td>
         <th>Avatar: </th>
+        <th>Gifts: </th>
+        <th>Store name:</th>
+        <th>Store Location:</th>
+        <th>Price:</th>
+        </thead>
+        <tbody>
+            <tr>
+        <td><%= users.name %></td>
         <td><%= users.avatar %></td>
         <% users.gifts.forEach(function(gift) { %>
-            <th>Gifts: </th>
             <td><%= gift.gift %></td>
-            <th>Store Details</th>
             <% stores.forEach(function(s) {%>
-            <% if(gift.userId === s._id) { %>
-                    <th>Store Location:</th>
+            <% if(gift.userId === stores._id) { %>
+                        <td><%= s.enum %></td>
                         <td><%= s.location %></td>
-                        <th>Price:</th>
                         <td><%= s.price %></td>
             <% }  %>
+        </tr>
             <% }) %>
-        <a href="/users/<%= gift._id %>/stores/new">Add Store</a>
+            <a href="/users/<%= gift._id %>/stores/new">Add Store</a>
         <% }) %>
+        </tbody>
         </table>
     </main>
     <footer>

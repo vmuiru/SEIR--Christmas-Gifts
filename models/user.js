@@ -4,13 +4,14 @@ const giftSchema = new mongoose.Schema({
   gift: {
     type: String,
 },
-// storeId: [{
-//     type: Schema.Types.ObjectId,
-//     ref: 'Store'
-// }]
+storeIds: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Store'
+}] 
 }, {
   timestamps: true
 });
+
 
 const userSchema = new mongoose.Schema({
   name: String,
