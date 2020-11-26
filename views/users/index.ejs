@@ -1,80 +1,21 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>SEIR-Christmas-Gifts</title>
-</head>
-
-<body>
-    <header>
-        <a href="/">Home</a>
-        <!-- Login UI Here -->
-        <% if (user) { %>
-        <a href="users/<%= user._id %>/new">Add Gift</a>
-        <a href="users/<%= user._id %>/stores/new">Add Stores</a>
-        <a href="/logout">Logout</a>
-        <% } else { %>
-        <a href="/auth/google">Login with Google</a>
-        <% } %>
-    </header>
-    <main>
-        <% if (user) { %>
-        <% users.forEach(function(user) { %>
-        <%= user.name %>
-        <ul>
-            <% user.gifts.forEach(function(gift) { %>
-            <li><%= gift.gift %></li>
-            <% }) %>
-        </ul>
-        <% }) %>
-        <table>
-            <thead>
-                <th>Name</th>
-                <th>Avatar</th>
-                <th>Gifts</th>
-                <th>Detail</th>
-            </thead>
-            <tbody>
-                <% users.forEach(user => { %>
-                    <tr>
-                        <td><%= user.name %></td>
-                        <td><%= user.avatar %></td>
-                        <% user.gifts.forEach(function(gifts) { %>
-                        <td><%= gifts.gifts %></td>
-                        <% }) %>
-                        <td><a href="/users/<%= user._id %>" class="detail">Detail</a></td>
-                        <%if (user.gifts > 1) { %>
-                            <% user.gifts.forEach(function(g) { %>
-                                <td> <%= g.location %> </td>
-                            <% }); %>
-                            <% } else{ %>
-                                <td><%= "Store Not Added" %>  </td> 
-                            <% } %>
-                        <td><form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">
-                            <button type="submit">X</button>
-                        </form>
-                        <a href="/users<%= user._id %>">
-                            <%= users.name %>
-                        </td>
-                        </a>
-                    </tr>
-                <% }) %>
-            </tbody>
-        </table>
-        <% } else { %>
-            <a href="/auth/google">Login with Google</a>
-            <% } %>
-        
-        
-
-    </main>
-    <footer>
-        <div>Copyright &copy; <span id="year"></span> All Rights Reserved 2020 | SEIR Christmas Gifts</div>
-    </footer>
-</body>
-
-</html>
+<%- include('../partials/headers') %>
+<% if (user) { %>
+<% users.forEach(function(user) { %>
+    <div class="ul">
+<div class="user-name"><%= user.name %></div>
+<ul>
+    <% user.gifts.forEach(function(gift) { %>
+    <li class="user-gifts"><%= gift.gift %></li>
+    <li id="detail"><a href="/users/gift/<%= gift._id %>">Detail</a></li>
+    <li>
+        <form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">
+            <button type="submit">X</button>
+    </li>
+    <% }) %>
+</ul>
+<% }) %>
+<a href="/users<%= user._id %>">
+    <%= users.name %>
+</div>
+    <% } %>
+    <%- include('../partials/footers') %>

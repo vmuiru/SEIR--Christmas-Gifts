@@ -1,51 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+ <%- include('../partials/headers') %>
+ <h2><a href="/users/<%= gifts._id %>/stores/new">Add Store</a></h2>
+ <table id="list">
+     <thead>
+         <th>User: </th>
+         <th>Gifts: </th>
+     </thead>
+     <tbody>
+         <td><%= users.name %></td>
+         <td><%= gifts.gift %></td>
+     </tbody>
+ </table>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <header>
-        <h1><a href="/users">Back to users</a></h1>
-
-    </header>
-    <main>
-        <table id="list">
-            <thead>
-        <th>User: </th>
-        <th>Avatar: </th>
-        <th>Gifts: </th>
-        <th>Store name:</th>
-        <th>Store Location:</th>
-        <th>Price:</th>
-        </thead>
-        <tbody>
-            <tr>
-        <td><%= users.name %></td>
-        <td><%= users.avatar %></td>
-        <% users.gifts.forEach(function(gift) { %>
-            <td><%= gift.gift %></td>
-            <% stores.forEach(function(s) {%>
-            <% if(gift.userId === stores._id) { %>
-                        <td><%= s.enum %></td>
-                        <td><%= s.location %></td>
-                        <td><%= s.price %></td>
-            <% }  %>
+ <table>
+     <thead>
+         <th>Store name:</th>
+         <th>Store Location:</th>
+         <th>Price:</th>
+     </thead>
+     <% storeList.forEach(function(s) {%>
+        <tr>
+            <tbody>
+                <% if(id === s._id) { %> 
+                <td><%= s.name %></td>
+                <td><%= s.location %></td>
+                <td><%= s.price %></td>
+                <% }  %>
+            </tbody>
         </tr>
-            <% }) %>
-            <a href="/users/<%= gift._id %>/stores/new">Add Store</a>
-        <% }) %>
-        </tbody>
-        </table>
-    </main>
-    <footer>
-
-    </footer>
-
-
-</body>
-
-</html>
+     <% }) %>
+ </table>
+ <%- include('../partials/footers') %>

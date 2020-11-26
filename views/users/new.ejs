@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header></header>
-    <main>
+<%- include('../partials/headers') %>
+
         <!-- Place Add gift UI Here -->
         <div class="card-action">
             <form action="/users/<%= userId %>/gifts" method="POST">
@@ -15,8 +7,4 @@
                 <button type="submit">Add gift</button>
             </form>
         </div>
-    </main>
-    <footer></footer>
-    
-</body>
-</html>
+        <%- include('../partials/footers') %>

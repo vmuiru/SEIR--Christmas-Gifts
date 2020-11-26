@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
 const port = 3000;
@@ -20,6 +21,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 app.use(morgan('dev'));
+app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -32,6 +34,12 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+//Passing user at every render
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 app.use('/', indexRoutes);
 app.use('/', usersRoutes);

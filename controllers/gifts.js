@@ -6,7 +6,6 @@ function newGift(req, res) {
         res.render('users/new', {
             title: 'Add Gift',
             userId
-           // gifts
         });
 }
 
