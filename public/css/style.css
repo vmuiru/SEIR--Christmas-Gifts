@@ -88,16 +88,23 @@ main>img {
 }
 
 .index-main {
-    display: flex;
     background-image: url(../css/images/svetozar-cenisev-R7af9oF5iJ0-unsplash.jpg);
-    height: 100%;
-    width: 100%;
-}
-.index-main>img {
     height: 100vh;
-    width: 100vh;
 }
-   @keyframes table {
+
+  .button {
+    border-radius: 50%;
+    background-color: var(--green);
+  }
+
+ 
+
+  .button:hover {
+      border-color: var(--white);
+
+  }
+
+  @keyframes table {
     0%   {background-color: red;}
     25%  {background-color: var(--green);}
     50%  {background-color: darkgreen;}
@@ -133,13 +140,13 @@ table td {
 }
 
 .ul {
-    height: 300px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
 }
-.ul>main {
-    flex: 1 1 80px;
+.ul li {
+    display: inline;
+    margin: 5px;
+    
 }
 
 .user-name {
@@ -147,12 +154,7 @@ table td {
     font-size: 40px;
     
 }
-/* @keyframes footer {
-    0%   {background-color: red;}
-    25%  {background-color: var(--green);}
-    50%  {background-color: darkgreen;}
-    100% {background-color: rgb(31, 116, 42);}
-  } */
+
 
 footer {
     display: flex;
@@ -163,7 +165,4 @@ footer {
     color: var(--white);
     height: 10vh;
     width: 100%;
-    /* animation-name: footer;
-    animation-duration: 4s;
-    animation-iteration-count: infinite; */
 }

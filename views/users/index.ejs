@@ -1,15 +1,15 @@
 <%- include('../partials/headers') %>
 <% if (user) { %>
 <% users.forEach(function(user) { %>
+    <ul>
     <div class="ul">
-<div class="user-name"><%= user.name %></div>
-<ul>
+<li class="user-name"><%= user.name %></li>
     <% user.gifts.forEach(function(gift) { %>
     <li class="user-gifts"><%= gift.gift %></li>
     <li id="detail"><a href="/users/gift/<%= gift._id %>">Detail</a></li>
     <li>
         <form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">
-            <button type="submit">X</button>
+            <button class="button" type="submit">X</button>
     </li>
     <% }) %>
 </ul>

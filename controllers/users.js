@@ -1,8 +1,6 @@
 const User = require('../models/user');
 const Store = require('../models/store');
 const Gifts = require('./gifts');
-const gifts = require('./gifts');
-const user = require('../models/user');
 
 module.exports = {
   index,
@@ -32,34 +30,28 @@ function addGift(req, res) {
   });
 }
 
+
 function show(req, res) {
-  let gifts;
-  let storeList = []
-    User.findById(req.user.id, function(err, users) {
-      users.gifts.forEach(function(gift) {
-        if (gift.id === req.params.id) {
-          gifts = gift 
+  User.findById(req.user.id).populate({path:'gifts', populate:{path:'storeIds'}}).exec(function(err, user) {
+      let currentGift;
+      user.gifts.forEach(function(gift) {
+        if(gift._id == req.params.id) {
+          currentGift = gift
+          console.log(`current gift:${currentGift}`);
         }else{
-          console.log(gift);
-        }
-      })
-        Store.find({}, function(err, stores) {
-          gifts.storeIds.forEach(function(id) {
-           stores.forEach(function(s) {
-            console.log(`store: ${s}` + `id: ${id}`);
-             if(id == s._id) {
-               storeList.push(s)
-               console.log(s); 
-             } else {
-               console.log(storeList)
-             }
-           })
-          })
-          res.render('users/show', 
-          { users, storeList, gifts });
-    });
-  });
+          console.log(gift)
+        } 
+      });
+      res.render('users/show', { user, currentGift });
+  })
 }
+
+
+
+
+
+
+  
 
 function delGift(req, res) {
   User.findByIdAndDelete(req.user.id, function(err, user) {

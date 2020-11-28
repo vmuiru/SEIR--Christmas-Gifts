@@ -7,7 +7,6 @@
  -HTML5
  -CSS3
  -JavaScript
- -jQuery v3.5
  -Node.js
  -Express
  -Mongoose
@@ -17,6 +16,11 @@
  Login with a google account
 
  ##Next Steps: Planned future enhancements
- Additional stores and locations
+ -Additional stores and locations
+ -Be able to share wishlist with friends through social media/ email
+ -Link to store sites
+ -Cart
+ -Calculator
+ -Increased privacy
 
 

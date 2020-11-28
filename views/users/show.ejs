@@ -5,25 +5,24 @@
          <th>Gifts: </th>
      </thead>
      <tbody>
-         <td><%= users.name %></td>
-         <td><%= gifts.gift %></td>
+         <td><%= user.name %></td>
+         <td><%= currentGift.gift %></td>
      </tbody>
  </table>
 
+ 
  <table>
      <thead>
-         <th>Store name:</th>
+         <th><a href="/users/<%= currentGift._id %>/stores/new">Stores:</a></th>
          <th>Store Location:</th>
          <th>Price:</th>
      </thead>
-     <% storeList.forEach(function(s) {%>
+     <% currentGift.storeIds.forEach(function(s) {%>
         <tr>
             <tbody>
-                <% if(id === s._id) { %> 
                 <td><%= s.name %></td>
                 <td><%= s.location %></td>
                 <td><%= s.price %></td>
-                <% }  %>
             </tbody>
         </tr>
      <% }) %>
