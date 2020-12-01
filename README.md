@@ -19,6 +19,10 @@
  Login with a google account
  Otherwise create one https://support.google.com/mail/answer/56256?hl=en
 
+![SEIR Homepage](https://user-images.githubusercontent.com/54866016/100807472-625f7700-3400-11eb-9a0a-a2bf8477c8bd.jpg)
+
+
+![SEIR Christstmas Gifts  wframes](https://user-images.githubusercontent.com/54866016/100807573-90dd5200-3400-11eb-915a-454be7ada765.jpg)
 
  ## Next Steps: Planned future enhancements
  - Additional stores and locations
